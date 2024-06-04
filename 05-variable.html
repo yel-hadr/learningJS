@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>05-variable</title>
+        <link rel="shortcut icon" href="">
+    </head>
+    
+    <style>
+           
+    </style>
+    <body>
+        <p>cart quantity</p>
+        <button onclick="
+            console.log(`number of items in this cart is : ${cartQuantity}`);
+        ">show the quantity</button>
+        <button onclick="
+            cartQuantity++;
+            console.log('you added one item to you cart now the quantity is : ' + cartQuantity);
+        "
+        >add to Cart</button>
+        <button onclick="
+            cartQuantity += 2;
+            console.log('you added two items to you cart now the quantity is : ' + cartQuantity);"
+        >+ 2</button>
+        <button onclick="
+            cartQuantity += 3;
+            console.log('you added three items to you cart now the quantity is : ' + cartQuantity);
+        ">+ 3</button>
+        <button onclick = "
+            cartQuantity = 0;
+            console.log('you reset the cart now the quantity is : ' + cartQuantity);
+        ">reset Cart </button>
+        
+        <script>
+            // in this course we will learn about variables
+            let cartQuantity = 0;
+            // let is a keyword to declare a variable
+            // const is a keyword to declare a constant
+            // var is a keyword to declare a variable
+            // var is the old way to declare a variable in new version of js we use let and const
+            // becouse var has some problems like hoisting
+        </script>
+    </body>
+</html>
+
+
+

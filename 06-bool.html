@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>06-booleans</title>
+        <link rel="shortcut icon" href="">
+    </head>
+    
+    <style>
+           p {
+               font-size: 20px;
+               font-weight: bold;
+               color:blueviolet;
+           }
+            button {
+                font-size: 20px;
+                font-weight: bold;
+                margin: 10px;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: rgb(154, 79, 188);
+                color: white;
+            }
+            button:hover {
+                transform: scale(1.1);
+                background-color: rgb(47, 47, 113);
+
+            }
+            #result {
+                font-size: 20px;
+                font-weight: bold;
+                color: rgb(154, 79, 188);
+            }
+            
+    </style>
+    <body>
+        <p>Rock Paper Scissors</p>
+
+        <button onclick="
+            const random = Math.floor(Math.random() * 3);
+            if (random === 0) {
+                result.textContent = `you choise Rock the computer choise ${choices[random]} you tie;`;
+            } else if (random === 1) {
+                result.textContent = `you choise Rock the computer choise ${choices[random]} you lose;`;
+            } else {
+                result.textContent = `you choise Rock the computer choise ${choices[random]} you win;`;
+            }
+            
+        ">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <p id="result">this is the result</p>
+        <script>
+            const choices = ['rock', 'paper', 'scissors'];
+            const paper = document.getElementById('paper');
+            const scissors = document.getElementById('scissors');
+            const result = document.getElementById('result');
+            paper.onclick = () => {
+                const random = Math.floor(Math.random() * 3);
+                if (random === 0) {
+                    result.textContent = `you choise Paper the computer choise ${choices[random]} you win;`;
+                } else if (random === 1) {
+                    result.textContent = `you choise Paper the computer choise ${choices[random]} you tie;`;
+                } else {
+                    result.textContent = `you choise Paper the computer choise ${choices[random]} you lose;`;
+                }
+            }
+            scissors.onclick = () => {
+                const random = Math.floor(Math.random() * 3);
+                if (random === 0) {
+                    result.textContent = `you choise Scissors the computer choise ${choices[random]} you lose;`;
+                } else if (random === 1) {
+                    result.textContent = `you choise Scissors the computer choise ${choices[random]} you win;`;
+                } else {
+                    result.textContent = `you choise Scissors the computer choise ${choices[random]} you tie;`;
+                }
+            }
+        </script>
+    </body>
+</html>

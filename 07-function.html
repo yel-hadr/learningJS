@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>07-fuctions</title>
+        <link rel="shortcut icon" href="">
+    </head>
+    
+    <style>
+           
+    </style>
+    <body>
+        <p>Rock Paper Scissors</p>
+
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <p id="result">this is the result</p>
+        <script>
+            const choices = ['rock', 'paper', 'scissors'];
+            function gamePlay(theAction)
+            {
+                const random = Math.floor(Math.random() * 3);
+                if (choices[random] === theAction) {
+                    result.textContent = `you choise ${theAction} the computer choise ${choices[random]} you tie;`;
+                    // alert('You tie');
+                } else if ((random === 2 && theAction === 'rock') || (choices[random + 1] === theAction)) {
+                    result.textContent = `you choise ${theAction} the computer choise ${choices[random]} you win;`;
+                    // alert('You win');
+                } else {
+                    result.textContent = `you choise ${theAction} the computer choise ${choices[random]} you lose;`;
+                    // alert('You lose');
+                }
+            }
+            // document object model : DOM this is the way we interact with the html elements
+            // we can select the elements by their id, class, tag name, or query selector
+            // we can also change the content of the elements
+           
+            const rock = document.getElementById('rock');
+            rock.addEventListener('click', () => gamePlay('rock'));
+            const paper = document.getElementById('paper');
+            const scissors = document.getElementById('scissors');
+            const result = document.getElementById('result');
+            // rock.onclick = gamePlay;
+            paper.onclick = () => gamePlay('paper');
+            scissors.onclick = () => gamePlay('scissors');
+            
+            // TO DO: i will creat a functioun with default value
+            function getFullName(firstName = 'John', lastName = 'Doe') {
+                return `${firstName} ${lastName}`;
+            }
+            console.log(getFullName('youssef', 'elhadraoui'));
+            console.log(getFullName('youssef')) // this will not return an error because we have a default value
+            // if we didnt do a default value this will return undefined 
+        </script>
+    </body>
+</html>

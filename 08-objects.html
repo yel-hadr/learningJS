@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Objects</title>
+        <link rel="shortcut icon" href="">
+    </head>
+    
+    <style>
+           
+    </style>
+    <body>
+        <p>Rock Paper Scissors</p>
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+        <button id="reset-the-score">Reset the score</button>
+        <p id="result">the computer choise : </p>
+        <p id="score">the score is : we have win 0 lose 0 tie 0</p>
+        <script>
+            // in this example we are creating an object called product
+            // the object has two properties name and prise
+            const score = {
+                win : 0,
+                lose : 0,
+                tie : 0
+            }
+            const choices = ['rock', 'paper', 'scissors'];
+            const paper = document.getElementById('paper');
+            const scissors = document.getElementById('scissors');
+            const result = document.getElementById('result');
+            const reset = document.getElementById('reset-the-score');
+            const scoreElement = document.getElementById('score');
+            const rock = document.getElementById('rock');
+
+            function gamePlay(theAction)
+            {
+                const random = Math.floor(Math.random() * 3);
+                if (choices[random] === theAction) {
+                    console.log(`you choise ${theAction} the computer choise ${choices[random]} you tie;`);
+                    score.tie++;
+                    result.textContent = `the computer choise : ${choices[random]}, you tie`;
+                    scoreElement.textContent = `the score is : win ${score.win} lose ${score.lose} tie ${score.tie}`;
+                    // alert('You tie');
+                } else if ((random === 2 && theAction === 'rock') || (choices[random + 1] === theAction)) {
+                    console.log(`you choise ${theAction} the computer choise ${choices[random]} you win;`);
+                    score.win++;
+                    result.textContent = `the computer choise : ${choices[random]}, you win`;
+                    scoreElement.textContent = `the score is : win ${score.win} lose ${score.lose} tie ${score.tie}`;
+                    // alert('You win');
+                } else {
+                    console.log(`you choise ${theAction} the computer choise ${choices[random]} you lose;`);
+                    score.lose++;
+                    result.textContent = `the computer choise : ${choices[random]}, you lose`;
+                    scoreElement.textContent = `the score is : win ${score.win} lose ${score.lose} tie ${score.tie}`;
+                }
+            }
+            rock.addEventListener('click', () => gamePlay('rock'));
+
+            
+            reset.addEventListener('click', () => {
+                score.win = 0;
+                score.lose = 0;
+                score.tie = 0;
+                scoreElement.textContent = `the score is : win ${score.win} lose ${score.lose} tie ${score.tie}`;
+            });
+            // rock.onclick = gamePlay;
+            paper.onclick = () => gamePlay('paper');
+            scissors.onclick = () => gamePlay('scissors');
+
+        </script>
+    </body>
+</html>
